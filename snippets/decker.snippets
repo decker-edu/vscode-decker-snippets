@@ -1,0 +1,149 @@
+{
+	"bold text": {
+        "scope": "markdown",
+		"prefix": ["**", "bold"],
+		"body": [
+			"**${1:Text}**"
+		],
+		"description": "Insert bold text"
+	},
+    "make bold": {
+        "scope": "markdown",
+        "prefix" : ["**", "bold"],
+        "body": [
+            "**${TM_SELECTED_TEXT:${1:Text}}**"
+        ],
+        "description": "Make selection bold"
+    }
+    "italic text": {
+        "scope": "markdown",
+        "prefix": ["*" ,"italic"],
+        "body": [
+            "*${1:Text}*"
+        ],
+        "description": "Insert italic text"
+    },
+    "make italic": {
+        "scope": "markdown",
+        "prefix" : ["*", "italic"],
+        "body": [
+            "*${TM_SELECTED_TEXT:${1:Text}}*"
+        ],
+        "description": "Make selection italic"
+    },
+    "image": {
+        "scope": "markdown",
+        "prefix": ["!", "image"],
+        "body": [
+            "![${1:alt-text}](${2:link/path to image})"
+        ]
+    },
+    "make image": {
+        "scope": "markdown",
+        "prefix" : ["!", "image"],
+        "body": [
+            "![${1:alt-text}](${TM_SELECTED_TEXT:${2:link/path to image}})"
+        ],
+        "description": "Make selection an image"
+    },
+    "unordered list": {
+        "scope": "markdown",
+        "prefix": ["-", "list"],
+        "body": [
+            "- ${1:Item}",
+            "- ${2:Item}",
+            "- ${3:Item}"
+        ],
+        "description": "Insert an unordered list"
+    },
+    "ordered list": {
+        "scope": "markdown",
+        "prefix": ["1.", "list"],
+        "body": [
+            "- ${1:Item}",
+            "- ${2:Item}",
+            "- ${3:Item}"
+        ],
+        "description": "Insert an ordered list"
+    },
+    "incremental unordered list": {
+        "scope":"markdown",
+        "prefix": ["::: ", "incremental"],
+        "body": [
+            "::: incremental",
+            "- ${1:Item}",
+            "- ${2:Item}",
+            "- ${3:Item}",
+            ":::"
+        ],
+        "description": "Insert an unordered list that is shown incrementally"
+    },
+    "incremental ordered list": {
+        "scope":"markdown",
+        "prefix": ["::: ", "incremental"],
+        "body": [
+            "::: incremental",
+            "1. ${1:Item}",
+            "2. ${2:Item}",
+            "3. ${3:Item}",
+            ":::"
+        ],
+        "description": "Insert an ordered list that is shown incrementally"
+    },
+    "insert link": {
+        "scope": "markdown",
+        "prefix": ["[" ,"link"],
+        "body": [
+            "[${1:Text}](${2:Link}} \"{3:Hover Text}\")"
+        ],
+        "description": "Insert inline LaTeX"
+    },
+    "make link": {
+        "scope": "markdown",
+        "prefix": ["[" ,"link"],
+        "body": [
+            "[${1:Text}](${TM_SELECTED_TEXT:${2:Text}} \"{3:Hover Text}\")"
+        ],
+        "description": "Insert inline LaTeX"
+    },
+    "insert inlinelatex": {
+        "scope": "markdown",
+        "prefix": ["$" ,"latex"],
+        "body": [
+            "\$${1:Text}\$"
+        ],
+        "description": "Insert inline LaTeX"
+    },
+    "make latex": {
+        "scope": "markdown",
+        "prefix": ["$", "latex"],
+        "body": [
+            "\$${TM_SELECTED_TEXT:${1:LaTeX}}\$"
+        ],
+        "description": "Make inline LaTeX"
+    }
+    "insert displaylatex": {
+        "scope": "markdown",
+        "prefix": ["$$" ,"latex"],
+        "body": [
+            "\$\$${1:Text}\$\$"
+        ],
+        "description": "Insert display LaTeX"
+    },
+    "insert quote": {
+        "scope": "markdown",
+        "prefix": [">" ,"quote"],
+        "body": [
+            "> ${1:Text}"
+        ],
+        "description": "Insert quote"
+    },
+    "make quote": {
+        "scope": "markdown",
+        "prefix": [">" ,"quote"],
+        "body": [
+            "> ${TM_SELECTED_TEXT:${1:Quote}}"
+        ],
+        "description": "Make quote"
+    }
+}

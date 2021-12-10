@@ -1,0 +1,219 @@
+{
+  "name": "decker-snippets",
+	"displayName": "decker-snippets",
+	"description": "Adds snippets for markdown documents and a context menu for adding these when a decker project is open.",
+	"version": "0.0.1",
+	"publisher": "decker-edu",
+	"repository": {
+	  "type": "git",
+	  "url": "https://github.com/salbeira/vscode-decker-snippets"
+	},
+	"engines": {
+		"vscode": "^1.62.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+        "workspaceContains:**/decker.yaml"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"configuration":[
+			
+		],
+		"submenus": [
+			{
+				"id": "decker/markdown",
+				"label": "Insert Markdown"
+			},
+			{
+				"id": "decker/incremental",
+				"label":"Insert Incremental"
+			},
+			{
+				"id": "decker/make",
+				"label": "Modify Selection (Decker)"
+			}
+		],
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "decker-snippets.bold",
+					"when": "false"
+				}
+			],
+			"editor/context": [
+				{
+					"submenu": "decker/markdown",
+					"group": "decker@1"
+				},
+				{
+					"submenu": "decker/incremental",
+					"group": "decker@2"
+				},
+				{
+					"submenu": "decker/make",
+					"group": "deckermake@1",
+					"when": "editorHasSelection"
+				}
+			],
+			"decker/markdown": [
+				{
+					"when": "resourceLangId == markdown",
+					"command": "decker-snippets.bold",
+					"group": "deckermarkdown@1"
+				},
+				{
+					"when": "resourceLangId == markdown",
+					"command": "decker-snippets.italic",
+					"group": "deckermarkdown@2"
+				},
+				{
+					"when": "resourceLangId == markdown",
+					"command": "decker-snippets.quote",
+					"group": "deckermarkdown@3"
+				},
+				{
+					"when": "resourceLangId == markdown",
+					"command": "decker-snippets.ul",
+					"group": "deckermarkdown@4"
+				},
+				{
+					"when": "resourceLangId == markdown",
+					"command": "decker-snippets.ol",
+					"group": "deckermarkdown@4"
+				},
+				{
+					"when": "resourceLangId == markdown",
+					"command": "decker-snippets.image",
+					"group": "deckermarkdown@5"
+				},
+				{
+					"when": "resourceLangId == markdown",
+					"command": "decker-snippets.link",
+					"group": "deckermarkdown@6"
+				},
+				{
+					"when": "resourceLangId == markdown",
+					"command": "decker-snippets.inlinelatex",
+					"group": "deckermarkdown@7"
+				},
+				{
+					"when": "resourceLangId == markdown",
+					"command": "decker-snippets.displaylatex",
+					"group": "deckermarkdown@8"
+				}
+			],
+			"decker/make": [
+				{
+					"when": "resourceLangId == markdown && editorHasSelection",
+					"command": "decker-snippets.make-bold",
+					"group": "deckermakemarkdown@1"
+				}
+			],
+			"decker/incremental": [
+				{
+					"when": "resourceLangId == markdown",
+					"command": "decker-snippets.incrementaldisplaylatex",
+					"group": "deckerincremental@6"
+				}
+			]
+		},
+		"snippets": [
+			{
+				"language": "markdown",
+				"path": "./snippets/decker.snippets"
+			}
+		],
+		"commands": [
+			{
+				"command": "decker-snippets.make-bold",
+				"title": "Make Bold"
+			},
+			{
+				"command": "decker-snippets.bold",
+				"title": "Insert Bold Text"
+			},
+			{
+				"command": "decker-snippets.italic",
+				"title": "Insert Italic Text"
+			},
+			{
+				"command": "decker-snippets.make-italic",
+				"title": "Make Italic"
+			},
+			{
+				"command": "decker-snippets.image",
+				"title": "Insert Image"
+			},
+			{
+				"command": "decker-snippets.make-image",
+				"title": "Turn into Image"
+			},
+			{
+				"command": "decker-snippets.ul",
+				"title": "Insert Unordered List"
+			},
+			{
+				"command": "decker-snippets.ol",
+				"title": "Insert Ordered List"
+			},
+			{
+				"command": "decker-snippets.quote",
+				"title": "Insert Quote"
+			},
+			{
+				"command": "decker-snippets.make-quote",
+				"title": "Make Quote"
+			},
+			{
+				"command": "decker-snippets.rule",
+				"title": "Insert Horizontal Rule"
+			},
+			{
+				"command": "decker-snippets.link",
+				"title": "Insert Link"
+			},
+			{
+				"command": "decker-snippets.inlinelatex",
+				"title": "Insert Inline Latex"
+			},
+			{
+				"command": "decker-snippets.displaylatex",
+				"title": "Insert Display Latex"
+			},
+			{
+				"command": "decker-snippets.incrementaldisplaylatex",
+				"title": "Insert Incremental Math Formula"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run package",
+		"compile": "webpack",
+		"watch": "webpack --watch",
+		"package": "webpack --mode production --devtool hidden-source-map",
+		"compile-tests": "tsc -p . --outDir out",
+		"watch-tests": "tsc -p . -w --outDir out",
+		"pretest": "npm run compile-tests && npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.62.0",
+		"@types/glob": "^7.1.4",
+		"@types/mocha": "^9.0.0",
+		"@types/node": "14.x",
+		"@typescript-eslint/eslint-plugin": "^5.1.0",
+		"@typescript-eslint/parser": "^5.1.0",
+		"eslint": "^8.1.0",
+		"glob": "^7.1.7",
+		"mocha": "^9.1.3",
+		"typescript": "^4.4.4",
+		"ts-loader": "^9.2.5",
+		"webpack": "^5.52.1",
+		"webpack-cli": "^4.8.0",
+		"@vscode/test-electron": "^1.6.2"
+	}
+}
