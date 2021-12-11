@@ -145,5 +145,25 @@
             "> ${TM_SELECTED_TEXT:${1:Quote}}"
         ],
         "description": "Make quote"
+    },
+    "insert code": {
+        "scope": "markdown",
+        "prefix": ["```" ,"code"],
+        "body": [
+            "```",
+            "${1:Code}",
+            "```"
+        ],
+        "description": "Insert codeblock"
+    },
+    "make quote": {
+        "scope": "markdown",
+        "prefix": [">" ,"quote"],
+        "body": [
+            "```",
+            "${TM_SELECTED_TEXT:${1:Code}},
+            "```"
+        ],
+        "description": "Make codeblock"
     }
 }

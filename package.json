@@ -103,13 +103,48 @@
 					"when": "resourceLangId == markdown",
 					"command": "decker-snippets.displaylatex",
 					"group": "deckermarkdown@8"
+				},
+				{
+					"when": "resourceLangId == markdown",
+					"command": "decker-snippets.code",
+					"group": "deckermarkdown@9"
 				}
 			],
 			"decker/make": [
 				{
 					"when": "resourceLangId == markdown && editorHasSelection",
-					"command": "decker-snippets.make-bold",
+					"command": "decker-snippets.make-italic",
 					"group": "deckermakemarkdown@1"
+				},
+				{
+					"when": "resourceLangId == markdown && editorHasSelection",
+					"command": "decker-snippets.make-bold",
+					"group": "deckermakemarkdown@2"
+				},
+				{
+					"when": "resourceLangId == markdown && editorHasSelection",
+					"command": "decker-snippets.make-quote",
+					"group": "deckermakemarkdown@3"
+				},
+				{
+					"when": "resourceLangId == markdown && editorHasSelection",
+					"command": "decker-snippets.make-image",
+					"group": "deckermakemarkdown@4"
+				},
+				{
+					"when": "resourceLangId == markdown && editorHasSelection",
+					"command": "decker-snippets.make-link",
+					"group": "deckermakemarkdown@5"
+				},
+				{
+					"when": "resourceLangId == markdown && editorHasSelection",
+					"command": "decker-snippets.make-latex",
+					"group": "deckermakemarkdown@6"
+				},
+				{
+					"when": "resourceLangId == markdown && editorHasSelection",
+					"command": "decker-snippets.make-code",
+					"group": "deckermarkdown@8"
 				}
 			],
 			"decker/incremental": [
@@ -176,8 +211,16 @@
 				"title": "Insert Link"
 			},
 			{
+				"command": "decker-snippets.make-link",
+				"title": "Make Link"
+			},
+			{
 				"command": "decker-snippets.inlinelatex",
 				"title": "Insert Inline Latex"
+			},
+			{
+				"command": "decker-snippets.make-inlinelatex",
+				"title": "Make Inline Latex"
 			},
 			{
 				"command": "decker-snippets.displaylatex",
@@ -186,6 +229,14 @@
 			{
 				"command": "decker-snippets.incrementaldisplaylatex",
 				"title": "Insert Incremental Math Formula"
+			},
+			{
+				"command": "decker-snippets.code",
+				"title": "Insert Codeblock"
+			},
+			{
+				"command": "decker-snippets.make-code",
+				"title": "Make Codeblock"
 			}
 		]
 	},
