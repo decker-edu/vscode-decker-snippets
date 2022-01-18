@@ -19,7 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
 	registerChange(context, "decker-snippets.make-image", "![${1:alt-text}](${TM_SELECTED_TEXT:${2:Link}})");
 	registerChange(context, "decker-snippets.make-link", "[${1:Text}](${TM_SELECTED_TEXT:${2:Text}} \"${3:Hover Text}\")");
 	registerChange(context, "decker-snippets.make-quote", "> ${TM_SELECTED_TEXT:${1:Text}}");
-	registerChange(context, "decker-snippets.make-latex", "\$${TM_SELECTED_TEXT:${1:Text}}\$");
+	registerChange(context, "decker-snippets.make-inlinelatex", "\$${TM_SELECTED_TEXT:${1:Text}}\$");
 	registerChange(context, "decker-snippets.make-code", "```\n${TM_SELECTED_TEXT:${1:Code}}\n```");
 }
 

@@ -1,8 +1,8 @@
 {
   "name": "decker-snippets",
-	"displayName": "decker-snippets",
+	"displayName": "Decker Snippets",
 	"description": "Adds snippets for markdown documents and a context menu for adding these when a decker project is open.",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"publisher": "decker-edu",
 	"repository": {
 	  "type": "git",
@@ -138,7 +138,7 @@
 				},
 				{
 					"when": "resourceLangId == markdown && editorHasSelection",
-					"command": "decker-snippets.make-latex",
+					"command": "decker-snippets.make-inlinelatex",
 					"group": "deckermakemarkdown@6"
 				},
 				{
