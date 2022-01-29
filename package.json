@@ -2,11 +2,11 @@
   "name": "decker-snippets",
 	"displayName": "Decker Snippets",
 	"description": "Adds snippets for markdown documents and a context menu for adding these when a decker project is open.",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"publisher": "decker-edu",
 	"repository": {
 	  "type": "git",
-	  "url": "https://github.com/salbeira/vscode-decker-snippets"
+	  "url": "https://github.com/decker-edu/vscode-decker-snippets"
 	},
 	"engines": {
 		"vscode": "^1.62.0"
