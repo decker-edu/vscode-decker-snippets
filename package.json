@@ -2,7 +2,7 @@
   "name": "decker-snippets",
 	"displayName": "Decker Snippets",
 	"description": "Adds snippets for markdown documents and a context menu for adding these when a decker project is open.",
-	"version": "0.0.3",
+	"version": "0.0.5",
 	"publisher": "decker-edu",
 	"repository": {
 	  "type": "git",

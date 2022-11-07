@@ -24,6 +24,10 @@ Incompletness.
 
 None as this is still just a test release for the decker-edu.decker-pack extension.
 
+### 0.0.4
+
+Added pandoc block folding
+
 ### 0.0.1
 
 Initial release

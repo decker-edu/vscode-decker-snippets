@@ -1,6 +1,36 @@
 import * as vscode from 'vscode';
 
+class TrippleDotFoldingRangeProvider implements vscode.FoldingRangeProvider {
+	provideFoldingRanges(document: vscode.TextDocument, context: vscode.FoldingContext, token: vscode.CancellationToken): vscode.ProviderResult<vscode.FoldingRange[]> {
+		let startExp : RegExp = /::: .+/g;
+		let endExp : RegExp = /:::/g;
+
+		let result : vscode.FoldingRange[] = [];
+		let text = document.getText();
+		let lines = text.split("\n");
+		let beginnings : number[] = [];
+		for(let index = 0; index < lines.length; index++) {
+			if(startExp.test(lines[index])) {
+				beginnings.push(index);
+			} else if (endExp.test(lines[index])) {
+				let end = index;
+				let beginning = beginnings.pop();
+				if(beginning) {
+					let fold = new vscode.FoldingRange(beginning, end, vscode.FoldingRangeKind.Region);
+					result.push(fold);
+				} else {
+					beginnings.push(index);
+				}
+			}
+		}
+		return result;
+	}
+}
+
 export function activate(context: vscode.ExtensionContext) {
+	let provider : TrippleDotFoldingRangeProvider = new TrippleDotFoldingRangeProvider();
+	vscode.languages.registerFoldingRangeProvider(["markdown"], provider);
+
 	registerInsert(context, "decker-snippets.bold", "**${1:Bold Text}**");
 	registerInsert(context, "decker-snippets.italic", "*${1:Italic Text}*");
 	registerInsert(context, "decker-snippets.image", "![${1:alt-text}](${2:path/link to image})");
