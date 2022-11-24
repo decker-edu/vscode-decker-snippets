@@ -9,7 +9,7 @@
 	  "url": "https://github.com/decker-edu/vscode-decker-snippets"
 	},
 	"engines": {
-		"vscode": "^1.71.0"
+		"vscode": "^1.73.0"
 	},
 	"categories": [
 		"Other"
@@ -18,6 +18,7 @@
         "workspaceContains:**/decker.yaml"
 	],
 	"main": "./dist/extension.js",
+	"l10n": "./l10n",
 	"contributes": {
 		"configuration":[
 			
@@ -25,15 +26,11 @@
 		"submenus": [
 			{
 				"id": "decker/markdown",
-				"label": "Insert Markdown"
+				"label": "%extension.decker-snippets.markdown.label%"
 			},
 			{
-				"id": "decker/incremental",
-				"label":"Insert Incremental"
-			},
-			{
-				"id": "decker/make",
-				"label": "Modify Selection (Decker)"
+				"id": "decker/modify",
+				"label": "%extension.decker-snippets.modify.label%"
 			}
 		],
 		"menus": {
@@ -49,11 +46,7 @@
 					"group": "decker@1"
 				},
 				{
-					"submenu": "decker/incremental",
-					"group": "decker@2"
-				},
-				{
-					"submenu": "decker/make",
+					"submenu": "decker/modify",
 					"group": "deckermake@1",
 					"when": "editorHasSelection"
 				}
@@ -71,7 +64,7 @@
 				},
 				{
 					"when": "resourceLangId == markdown",
-					"command": "decker-snippets.quote",
+					"command": "decker-snippets.blockquote",
 					"group": "deckermarkdown@3"
 				},
 				{
@@ -106,11 +99,16 @@
 				},
 				{
 					"when": "resourceLangId == markdown",
-					"command": "decker-snippets.code",
+					"command": "decker-snippets.inlinecode",
 					"group": "deckermarkdown@9"
+				},
+				{
+					"when": "resourceLangId == markdown",
+					"command": "decker-snippets.codeblock",
+					"group": "deckermarkdown@10"
 				}
 			],
-			"decker/make": [
+			"decker/modify": [
 				{
 					"when": "resourceLangId == markdown && editorHasSelection",
 					"command": "decker-snippets.make-italic",
@@ -123,7 +121,7 @@
 				},
 				{
 					"when": "resourceLangId == markdown && editorHasSelection",
-					"command": "decker-snippets.make-quote",
+					"command": "decker-snippets.make-blockquote",
 					"group": "deckermakemarkdown@3"
 				},
 				{
@@ -143,15 +141,18 @@
 				},
 				{
 					"when": "resourceLangId == markdown && editorHasSelection",
-					"command": "decker-snippets.make-code",
-					"group": "deckermarkdown@8"
-				}
-			],
-			"decker/incremental": [
+					"command": "decker-snippets.make-displaylatex",
+					"group": "deckermakemarkdown@7"
+				},
 				{
-					"when": "resourceLangId == markdown",
-					"command": "decker-snippets.incrementaldisplaylatex",
-					"group": "deckerincremental@6"
+					"when": "resourceLangId == markdown && editorHasSelection",
+					"command": "decker-snippets.make-inlinecode",
+					"group": "deckermarkdown@8"
+				},
+				{
+					"when": "resourceLangId == markdown && editorHasSelection",
+					"command": "decker-snippets.make-codeblock",
+					"group": "deckermarkdown@9"
 				}
 			]
 		},
@@ -163,80 +164,92 @@
 		],
 		"commands": [
 			{
-				"command": "decker-snippets.make-bold",
-				"title": "Make Bold"
+				"command": "decker-snippets.bold",
+				"title": "%extension.decker-snippets.commands.bold.title%"
 			},
 			{
-				"command": "decker-snippets.bold",
-				"title": "Insert Bold Text"
+				"command": "decker-snippets.make-bold",
+				"title": "%extension.decker-snippets.commands.make-bold.title%"
 			},
 			{
 				"command": "decker-snippets.italic",
-				"title": "Insert Italic Text"
+				"title": "%extension.decker-snippets.commands.italic.title%"
 			},
 			{
 				"command": "decker-snippets.make-italic",
-				"title": "Make Italic"
+				"title": "%extension.decker-snippets.commands.make-italic.title%"
 			},
 			{
 				"command": "decker-snippets.image",
-				"title": "Insert Image"
+				"title": "%extension.decker-snippets.commands.image.title%"
 			},
 			{
 				"command": "decker-snippets.make-image",
-				"title": "Turn into Image"
+				"title": "%extension.decker-snippets.commands.make-image.title%"
 			},
 			{
 				"command": "decker-snippets.ul",
-				"title": "Insert Unordered List"
+				"title": "%extension.decker-snippets.commands.ul.title%"
 			},
 			{
 				"command": "decker-snippets.ol",
-				"title": "Insert Ordered List"
+				"title": "%extension.decker-snippets.commands.ol.title%"
 			},
 			{
-				"command": "decker-snippets.quote",
-				"title": "Insert Quote"
+				"command": "decker-snippets.blockquote",
+				"title": "%extension.decker-snippets.commands.blockquote.title%"
 			},
 			{
-				"command": "decker-snippets.make-quote",
-				"title": "Make Quote"
+				"command": "decker-snippets.make-blockquote",
+				"title": "%extension.decker-snippets.commands.make-blockquote.title%"
 			},
 			{
 				"command": "decker-snippets.rule",
-				"title": "Insert Horizontal Rule"
+				"title": "%extension.decker-snippets.commands.rule.title%"
 			},
 			{
 				"command": "decker-snippets.link",
-				"title": "Insert Link"
+				"title": "%extension.decker-snippets.commands.link.title%"
 			},
 			{
 				"command": "decker-snippets.make-link",
-				"title": "Make Link"
+				"title": "%extension.decker-snippets.commands.make-link.title%"
 			},
 			{
 				"command": "decker-snippets.inlinelatex",
-				"title": "Insert Inline Latex"
+				"title": "%extension.decker-snippets.commands.inlinelatex.title%"
 			},
 			{
 				"command": "decker-snippets.make-inlinelatex",
-				"title": "Make Inline Latex"
+				"title": "%extension.decker-snippets.commands.make-inlinelatex.title%"
 			},
 			{
 				"command": "decker-snippets.displaylatex",
-				"title": "Insert Display Latex"
+				"title": "%extension.decker-snippets.commands.displaylatex.title%"
+			},
+			{
+				"command": "decker-snippets.make-displaylatex",
+				"title": "%extension.decker-snippets.commands.make-displaylatex.title%"
 			},
 			{
 				"command": "decker-snippets.incrementaldisplaylatex",
-				"title": "Insert Incremental Math Formula"
+				"title": "%extension.decker-snippets.commands.incrementaldisplaylatex.title%"
 			},
 			{
-				"command": "decker-snippets.code",
-				"title": "Insert Codeblock"
+				"command": "decker-snippets.inlinecode",
+				"title": "%extension.decker-snippets.commands.inlinecode.title%"
 			},
 			{
-				"command": "decker-snippets.make-code",
-				"title": "Make Codeblock"
+				"command": "decker-snippets.make-inlinecode",
+				"title": "%extension.decker-snippets.commands.make-inlinecode.title%"
+			},
+			{
+				"command": "decker-snippets.codeblock",
+				"title": "%extension.decker-snippets.commands.codeblock.title%"
+			},
+			{
+				"command": "decker-snippets.make-codeblock",
+				"title": "%extension.decker-snippets.commands.make-codeblock.title%"
 			}
 		]
 	},
@@ -255,28 +268,22 @@
 		"@types/glob": "^8.0.0",
 		"@types/mocha": "^9.1.1",
 		"@types/node": "18.x",
-		"@types/vscode": "^1.71.0",
+		"@types/vscode": "^1.73.0",
 		"@typescript-eslint/eslint-plugin": "^5.36.1",
 		"@typescript-eslint/parser": "^5.36.1",
 		"@vscode/test-electron": "^2.1.5",
-		"del": "^6.0.0",
 		"eslint": "^8.23.0",
 		"event-stream": "^4.0.1",
 		"glob": "^8.0.3",
-		"gulp": "^4.0.2",
-		"gulp-filter": "^7.0.0",
-		"gulp-sourcemaps": "^3.0.0",
-		"gulp-typescript": "^6.0.0-alpha.1",
 		"mocha": "^10.0.0",
-		"run-sequence": "^2.2.1",
 		"ts-loader": "^9.3.1",
 		"typescript": "4.7.4",
 		"vsce": "^2.11.0",
-		"vscode-nls-dev": "^4.0.1",
 		"webpack": "^5.74.0",
 		"webpack-cli": "^4.10.0"
 	},
 	"dependencies": {
-		"vscode-nls": "^5.2.0"
+		"@vscode/l10n": "^0.0.10",
+		"@vscode/l10n-dev": "^0.0.19"
 	}
 }

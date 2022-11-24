@@ -38,19 +38,20 @@ export function activate(context: vscode.ExtensionContext) {
 	registerInsert(context, "decker-snippets.ol", "1. ${1:Item}\n2. ${2:Item}\n3. ${3:Item}");
 	registerInsert(context, "decker-snippets.rule", "---");
 	registerInsert(context, "decker-snippets.link", "[${1:Text}](${2:Link} \"${3:Hover Text}\")");
-	registerInsert(context, "decker-snippets.quote", "> ${1:Quote}");
+	registerInsert(context, "decker-snippets.blockquote", "> ${1:Quote}");
 	registerInsert(context, "decker-snippets.inlinelatex", "\$${1:LaTeX}\$");
 	registerInsert(context, "decker-snippets.displaylatex", "\$\$${1:LaTeX}\$\$");
-	registerInsert(context, "decker-snippets.incrementaldisplaylatex", "[\$\$\n\\begin{eqnarry*}\n${1:First Step} \\\\ \n${2:Second Step} \\\\ \n\\end{eqnarry*}\n\$\$]{ .math-incremental }");
-	registerInsert(context, "decker-snippets.code", "```\n${1:Code}\n```");
+	registerInsert(context, "decker-snippets.inlinecode", "`\n${1:Code}\n`");
+	registerInsert(context, "decker-snippets.codeblock", "```\n${1:Code}\n```");
 
 	registerChange(context, "decker-snippets.make-bold", "**${TM_SELECTED_TEXT:${1:Text}}**");
 	registerChange(context, "decker-snippets.make-italic", "*${TM_SELECTED_TEXT:${1:Text}}*");
 	registerChange(context, "decker-snippets.make-image", "![${1:alt-text}](${TM_SELECTED_TEXT:${2:Link}})");
 	registerChange(context, "decker-snippets.make-link", "[${1:Text}](${TM_SELECTED_TEXT:${2:Text}} \"${3:Hover Text}\")");
-	registerChange(context, "decker-snippets.make-quote", "> ${TM_SELECTED_TEXT:${1:Text}}");
+	registerChange(context, "decker-snippets.make-blockquote", "> ${TM_SELECTED_TEXT:${1:Text}}");
 	registerChange(context, "decker-snippets.make-inlinelatex", "\$${TM_SELECTED_TEXT:${1:Text}}\$");
-	registerChange(context, "decker-snippets.make-code", "```\n${TM_SELECTED_TEXT:${1:Code}}\n```");
+	registerChange(context, "decker-snippets.make-inlinecode", "`\n${TM_SELECTED_TEXT:${1:Code}}\n`");
+	registerChange(context, "decker-snippets.make-codeblock", "```\n${TM_SELECTED_TEXT:${1:Code}}\n```");
 }
 
 function registerInsert(context: vscode.ExtensionContext, command: string, snippet: string) {

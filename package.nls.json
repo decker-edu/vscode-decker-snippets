@@ -1,3 +1,26 @@
 {
-    "extension.decker-snippets.description": "Adds snippets for markdown documents and a context menu for adding these when a decker project is open."
+    "extension.decker-snippets.description": "Adds snippets for markdown documents and a context menu for adding these when a decker project is open.",
+    "extension.decker-snippets.markdown.label": "Insert Markdown",
+    "extension.decker-snippets.modify.label": "Modify Selection",
+    "extension.decker-snippets.commands.bold.title": "Bold Text",
+    "extension.decker-snippets.commands.make-bold.title": "Mark as bold",
+    "extension.decker-snippets.commands.italic.title": "Italic Text",
+    "extension.decker-snippets.commands.make-italic.title": "Mark as italic",
+    "extension.decker-snippets.commands.image.title": "Image",
+    "extension.decker-snippets.commands.make-image.title": "Use as image source",
+    "extension.decker-snippets.commands.ul.title": "Unordered List",
+    "extension.decker-snippets.commands.ol.title": "Ordered List",
+    "extension.decker-snippets.commands.blockquote.title": "Blockquote",
+    "extension.decker-snippets.commands.make-blockquote.title": "Mark as blockquote",
+    "extension.decker-snippets.commands.rule.title": "Horizontal Rule",
+    "extension.decker-snippets.commands.link.title": "Text with Link",
+    "extension.decker-snippets.commands.make-link.title": "Format as text with link",
+    "extension.decker-snippets.commands.inlinelatex.title": "Inline LaTeX",
+    "extension.decker-snippets.commands.make-inlinelatex.title": "Mark as inline LaTeX code",
+    "extension.decker-snippets.commands.displaylatex.title": "Display LaTeX",
+    "extension.decker-snippets.commands.make-displaylatex.title": "Mark as centered LaTeX code",
+    "extension.decker-snippets.commands.inlinecode.title": "Inline Code",
+    "extension.decker-snippets.commands.make-inlinecode.title": "Mark as inline code",
+    "extension.decker-snippets.commands.codeblock.title": "Codeblock",
+    "extension.decker-snippets.commands.make-codeblock.title": "Mark as codeblock"
 }
